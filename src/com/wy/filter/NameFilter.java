@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 /**
  * Created by wuyong on 2016/12/18.
  */
-@WebFilter(filterName = "NameFilter",urlPatterns = {"/LoginServlet"/*,"/loginSucceed.jsp"*/})
+@WebFilter(filterName = "NameFilter"/*,urlPatterns = {"/LoginServlet","/loginSucceed.jsp"}*/)
 public class NameFilter implements Filter {
     public void destroy() {
     }
@@ -27,10 +27,11 @@ public class NameFilter implements Filter {
             return;
         }
 */
-        if (null == name || "".equals(name)||!"wuyong".equals(name)) {
+        if (null == name || "".equals(name) || !"wuyong".equals(name)) {
             out.println("<script language='JavaScript'>alert('UserName Wrong!!');window.location.href='index.jsp';</script>");
+        } else {
+            chain.doFilter(request, response);
         }
-        chain.doFilter(request, response);
     }
 
     public void init(FilterConfig config) throws ServletException {

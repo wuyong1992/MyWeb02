@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 /**
  * Created by wuyong on 2016/12/18.
  */
-@WebFilter(filterName = "PasswordFilter",urlPatterns = {"/LoginServlet"/*,"/loginSucceed.jsp"*/})
+@WebFilter(filterName = "PasswordFilter"/*,urlPatterns = {"/LoginServlet","/loginSucceed.jsp"}*/)
 public class PasswordFilter implements Filter {
     public void destroy() {
     }
@@ -24,14 +24,13 @@ public class PasswordFilter implements Filter {
             chain.doFilter(request, response);
             return;
         }*/
-        if (!"123".equals(password)) {
+        if (null == password || "".equals(password)||!"123".equals(password)) {
             out.println("<script language='JavaScript'>alert('Password Wrong!!');window.location.href='index.jsp';</script>");
         }else {
-
             res.getSession().setAttribute("password",password);
+            chain.doFilter(request, response);
         }
 
-        chain.doFilter(request, response);
     }
 
     public void init(FilterConfig config) throws ServletException {

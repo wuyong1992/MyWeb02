@@ -9,21 +9,24 @@ import java.io.IOException;
 /**
  * Created by wuyong on 2016/12/18.
  */
-@WebFilter(filterName = "EncodingFilter", initParams = {@WebInitParam(name = "charset", value = "utf-8")})
+@WebFilter(filterName = "EncodingFilter"/*,urlPatterns = {"/LoginServlet","/loginSucceed.jsp"}*/, initParams = {@WebInitParam(name = "charset", value = "utf-8")})
 
 public class EncodingFilter implements Filter {
+
+    String chareat;
+
     public void destroy() {
     }
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
-        HttpServletRequest res = (HttpServletRequest) request;
+        request.setCharacterEncoding(chareat);
 
         chain.doFilter(request, response);
     }
 
     public void init(FilterConfig config) throws ServletException {
 
-
+        chareat = config.getInitParameter("charset");
     }
 
 }
