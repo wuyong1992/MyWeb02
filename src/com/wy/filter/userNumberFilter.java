@@ -10,18 +10,18 @@ import java.io.PrintWriter;
 import java.util.Map;
 
 /**
- * 判断是否已经登录
- * Created by Administrator on 2016/12/19.
+ * 当用户未登录时不允许查看在线用户状态。
+ * 日后改进成，判断用户权限，给予相应操作。
+ * Created by Administrator on 2016/12/20.
  */
-@WebFilter(filterName = "HasLoginFilter",urlPatterns = {"/loginSucceed.jsp"})
-public class HasLoginFilter implements Filter {
+@WebFilter(filterName = "userNumberFilter",urlPatterns = {"/userNumber.jsp"})
+public class userNumberFilter implements Filter {
     public void destroy() {
+        System.out.println("userNumberFilter销毁...");
     }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
-
-        System.out.println("HasLoginFilter执行中...");
-
+        System.out.println("userNumberFilter执行...");
         PrintWriter out = resp.getWriter();
         //向下转型
         HttpServletRequest request = (HttpServletRequest) req;
@@ -38,19 +38,20 @@ public class HasLoginFilter implements Filter {
         if (userInfo==null) {
             //如果判断没有登录过，则返回登录界面
             out.println("<script language='JavaScript'>alert('Please enter the correct user name and password!!');window.location.href='index.jsp';</script>");
-            /*response.sendRedirect("index.jsp");*/
         }else if (userInfo.keySet().size() > 0) {
-            request.getRequestDispatcher("loginSucceed.jsp").forward(request, response);
+            request.getRequestDispatcher("userNumber.jsp").forward(request, response);
         } else {
             //现在只有这一个过滤，不需要向下传
             chain.doFilter(req, resp);
         }
 
+
+        chain.doFilter(req, resp);
     }
 
     public void init(FilterConfig config) throws ServletException {
 
-        System.out.println("HasLoginFilter初始化");
+        System.out.println("userNumberFilter初始化启动...");
     }
 
 }

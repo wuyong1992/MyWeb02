@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  * Created by wuyong on 2016/12/18.
  */
-@WebFilter(filterName = "EncodingFilter"/*,urlPatterns = {"/LoginServlet","/loginSucceed.jsp"}*/, initParams = {@WebInitParam(name = "charset", value = "utf-8")})
+@WebFilter(filterName = "EncodingFilter",urlPatterns = {"/*"}, initParams = {@WebInitParam(name = "charset", value = "utf-8")})
 
 public class EncodingFilter implements Filter {
 
@@ -20,6 +20,7 @@ public class EncodingFilter implements Filter {
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
         request.setCharacterEncoding(chareat);
+        response.setCharacterEncoding(chareat);
 
         chain.doFilter(request, response);
     }

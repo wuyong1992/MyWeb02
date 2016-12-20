@@ -13,5 +13,8 @@
 <body>
 
 <h3>欢迎回来！<%=session.getAttribute("name")%></h3>
+
+<a href="userNumber.jsp">在线人数</a>
+
 </body>
 </html>

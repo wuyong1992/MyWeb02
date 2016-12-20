@@ -24,6 +24,9 @@
     </div>
     <div class="foot">
         <p>foot</p>
+        <div class="userNum">
+            <a href="userNumber.jsp">在线人数</a>
+        </div>
     </div>
 </div>
 

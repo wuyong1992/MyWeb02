@@ -65,6 +65,7 @@ p {
     background: cornflowerblue;
     margin: 10px;
     text-align: center;
+    position: relative;
 }
 .foot p {
     margin: 0;
@@ -133,4 +134,17 @@ p {
     border: 1px solid #3224ff;
     border-radius: 10px;
     background-color: transparent;
+}
+.userNum {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: 1px solid red;
+
+}
+
+.userNum a {
+    font-size: 30px;
+    color: #2bffd0;
+    text-decoration: none;
 }
