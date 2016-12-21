@@ -11,6 +11,7 @@ import java.io.IOException;
  */
 @WebFilter(filterName = "EncodingFilter",urlPatterns = {"/*"}, initParams = {@WebInitParam(name = "charset", value = "utf-8")})
 
+
 public class EncodingFilter implements Filter {
 
     String chareat;
