@@ -14,12 +14,14 @@
 <body>
 <h2>当前在线用户信息：</h2>
 
+
 <%
     //先从服务器取出包含用户名的set集合
     Set all = (Set) this.getServletConfig().getServletContext().getAttribute("online");
     if (all.size() > 0 || null != all) {
 %>
 <h3>
+    在线人数：<%=all.size()%><br>
     用户名：
 </h3>
 <%

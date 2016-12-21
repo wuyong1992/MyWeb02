@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
 
         //将获取的姓名，密码放入map中
         userInfo.put(name, password);
-        if ("wuyong".equals(name) && "123".equals(password)) {
+        if ("吴勇".equals(name) && "123".equals(password)) {
             //将map设置入session范围
             request.getSession().setAttribute("name",name);
             request.getSession().setAttribute("user", userInfo);
