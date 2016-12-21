@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建3D场景</title>
+    <!--<link rel="stylesheet" href="../style/Normalize.css">-->
+    <style>
+        #experiment {
+            -webkit-perspective: 800px;
+            -webkit-perspective-origin: 50% 50%;
+            -webkit-transform-style: preserve-3d;
+        }
+        #block {
+            width: 500px;
+            height: 500px;
+            background-color: #6699cc;
+            margin: 0 auto;
+
+            -webkit-transform: rotateX(45deg);
+            /*-webkit-transform: rotateY(45deg);
+            -webkit-transform: rotateZ(45deg);*/
+        }
+    </style>
+</head>
+<body>
+<div id="experiment">
+    <div id="block">
+
+    </div>
+</div>
+</body>
+</html>
