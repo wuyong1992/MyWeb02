@@ -1,0 +1,40 @@
+/*
+    ============
+    导航条样式
+    ============
+*/
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+.cont {
+    height: 5rem;
+    background-color: #a8a8aa;
+}
+
+ul {
+
+}
+.nav li {
+    display: inline-block;
+    font-size: 3rem;
+    line-height: 5rem;
+    margin-left: 2rem;
+    padding-left: 2rem;
+}
+a {
+    text-decoration: none;
+}
+a span{
+    color: white;
+}
+a span:hover {
+    color: black;
+    transition-property: color;
+    transition-duration: 2s;
+}
