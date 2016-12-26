@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>彩色七巧板</title>
+    <link rel="stylesheet" href="../style/Normalize.css">
+</head>
+<body>
+<canvas id="canvas" width="800" height="800" style="border: 1px solid saddlebrown;margin: 0 auto;display: block">
+    不支持画布，请更换浏览器！
+</canvas>
+
+<script>
+    //    高端使用循环写
+    //    不可使用大写Window.onload，无效
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        //绘制线条
+        context.beginPath();
+        context.moveTo(0, 0);
+        context.lineTo(400, 400);
+        context.lineTo(0, 800);
+        context.fillStyle = '#66BDCF';
+        context.fill();
+        context.closePath();
+
+        context.beginPath();
+        context.moveTo(0, 0);
+        context.lineTo(400, 400);
+        context.lineTo(800, 0);
+        context.fillStyle = '#CEFE68';
+        context.fill();
+        context.closePath();
+
+        context.beginPath();
+        context.moveTo(800, 800);
+        context.lineTo(800, 400);
+        context.lineTo(400, 800);
+        context.fillStyle = '#F9C928';
+        context.fill();
+        context.closePath();
+
+        context.beginPath();
+        context.moveTo(0, 800);
+        context.lineTo(200, 600);
+        context.lineTo(400, 800);
+        context.fillStyle = '#F78ECE';
+        context.fill();
+        context.closePath();
+
+        context.beginPath();
+        context.moveTo(400, 400);
+        context.lineTo(600, 600);
+        context.lineTo(400, 800);
+        context.lineTo(200, 600);
+        context.fillStyle = '#A795C3';
+        context.fill();
+        context.closePath();
+
+        context.beginPath();
+        context.moveTo(400, 400);
+        context.lineTo(600, 200);
+        context.lineTo(600, 600);
+        context.fillStyle = '#FAF61C';
+        context.fill();
+        context.closePath();
+
+        context.beginPath();
+        context.moveTo(600, 200);
+        context.lineTo(800, 0);
+        context.lineTo(800, 400);
+        context.lineTo(600, 600);
+        context.fillStyle = '#F13C64';
+        context.fill();
+        context.closePath();
+    };
+
+
+</script>
+
+</body>
+</html>
