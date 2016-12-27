@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+    <link rel="stylesheet" href="../style/Normalize.css">
+    <style>
+        .cont {
+            height: 100px;
+            width: 1500px;
+            border: 1px solid rebeccapurple;
+            border-radius: 10px;
+            margin: 0 auto;
+            font-size: 80px;
+            line-height: 100px;
+            overflow: auto;
+            padding-left: 100px;
+            color: #a8a8aa;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            showtime();
+
+            function showtime() {
+                function check(i) {
+                    if (i < 10) {
+                        i = "0" + i;
+                    }
+                    return i;
+                }
+
+                var curtime = new Date();
+                var endtime = new Date("2017/01/15 4:30:00");
+                /*//这个是取整，以天为单位
+                 var lefttime = (endtime.getTime() - curtime.getTime()) / (1000 * 60 * 60 * 24);
+                 document.getElementById("countDown").innerHTML = Math.ceil(lefttime);   //向上取整*/
+
+                var lefttime = parseInt((endtime.getTime() - curtime.getTime()) / 1000);   //获取秒数
+                //这个是精准到秒
+                var d = parseInt(lefttime / (24 * 60 * 60));
+                var h = parseInt(lefttime / (60 * 60) % 24);
+                var m = parseInt(lefttime / 60 % 60);
+                var s = parseInt(lefttime % 60);
+
+                m = check(m);
+                s = check(s);
+
+                document.getElementById("countDown").innerHTML = d + "天" + h + "时" + m + "分" + s + "秒";
+
+                setTimeout(showtime, 500);
+            }
+        };
+
+    </script>
+</head>
+<body>
+<div class="cont">
+    距离放假还剩
+    <div id="countDown" style="display: inline-block">
+        显示放假倒计时！
+    </div>
+
+</div>
+</body>
+</html>
