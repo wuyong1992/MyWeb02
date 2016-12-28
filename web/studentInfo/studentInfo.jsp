@@ -62,7 +62,8 @@
                     </h4>
                 </div>
                 <div class="modal-body" id="modal-body">
-                    <%--@declare id="name"--%><label for="name">工号:</label>
+                    <%--@declare id="name"--%>
+                    <label for="name">工号:</label>
                     <input type="text" class="form-control" id="m_code" placeholder="请输入工号">
                     <label for="name">姓名:</label>
                     <input type="text" class="form-control" id="m_userName" placeholder="请输入姓名">
